@@ -44,7 +44,7 @@ function setting_docker_proxy() {
     if [ -n $PROXY ]; then
         mkdir -p /etc/systemd/system/docker.service.d
         echo "[Service]" > /etc/systemd/system/docker.service.d/http-proxy.conf
-        echo 'Environment="HTTP_PROXY="'$PROXY'" "HTTPS_PROXY='$PROXY'" "NO_PROXY=localhost,127.0.0.0/8,192.168.0.0/16"'
+        echo 'Environment="HTTP_PROXY="'$PROXY'" "HTTPS_PROXY='$PROXY'" "NO_PROXY=localhost,127.0.0.0/8,192.168.0.0/16"' >> /etc/systemd/system/docker.service.d/http-proxy.conf
 
         systemctl daemon-reload
         systemctl restart docker

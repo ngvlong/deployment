@@ -1,0 +1,1 @@
+docker pull logstash:5.6.9

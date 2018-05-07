@@ -5,6 +5,13 @@ services:
         container_name: influxdb
         image: influxdb:1.5.2
         restart: always
+        environment:
+            - INFLUXDB_DB: "logstash"
+            - INFLUXDB_ADMIN_USER: "root"
+            - INFLUXDB_ADMIN_PASSWORD: "root"
+            - INFLUXDB_ADMIN_ENABLED: true
+            - INFLUXDB_USER: "admin"
+            - INFLUXDB_USER_PASSWORD: "admin"
         network_mode: host
         logging:
             driver: json-file
@@ -18,8 +25,8 @@ services:
         restart: always
         network_mode: host
         environment:
-            - INFLUXDB_USERNAME=""
-            - INFLUXDB_PASSWORD=""
+            - INFLUXDB_USERNAME="root"
+            - INFLUXDB_PASSWORD="root"
             - INFLUXDB_DATABASE="logstash"
             - INFLUXDB_HOST="127.0.0.1"
         logging:

@@ -6,6 +6,8 @@ function update(){
 }
 
 function setting_apt_proxy(){
+    echo "Start setting proxy for apt"
+    echo 'Proxy:'$PROXY
     if [ -n $PROXY ]; then
         echo 'Acquire::http::Proxy "'$PROXY'";' > /etc/apt/apt.conf
         echo 'Acquire::https::Proxy "'$PROXY'";' >> /etc/apt/apt.conf

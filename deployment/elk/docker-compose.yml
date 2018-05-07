@@ -4,7 +4,7 @@ services:
         container_name: logstash
         image: logstash:5.6.9
         restart: always
-        volume:
+        volumes:
             - ./etc/logstash/conf.d:/etc/logstash/conf.d
         command: -f /etc/logstash/conf.d -r
         logging:

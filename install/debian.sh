@@ -1,11 +1,11 @@
 #!/bin/bash
 
-def update(){
+function update(){
     apt-get update -y
     apt-get upgrade -y
 }
 
-def setting_apt_proxy(){
+function setting_apt_proxy(){
     if [ -n $PROXY ]; then
         echo 'Acquire::http::Proxy "$PROXY";' > /etc/apt/apt.conf
         echo 'Acquire::https::Proxy "$PROXY";' >> /etc/apt/apt.conf
@@ -13,7 +13,7 @@ def setting_apt_proxy(){
     fi
 }
 
-def setting_apt_source(){
+function setting_apt_source(){
     echo 'deb http://security.debian.org/ jessie/updates main contrib' > /etc/apt/sources.list
     echo 'deb-src http://security.debian.org/ jessie/updates main contrib' >> /etc/apt/sources.list
     echo 'deb http://ftp.debian.org/debian/ jessie-updates main contrib' >> /etc/apt/sources.list
@@ -22,7 +22,7 @@ def setting_apt_source(){
     
 }
 
-def install_docker() {
+function install_docker() {
     apt-get remove docker docker-engine docker.io
     apt-get update
     apt-get install -y apt-transport-https ca-certificates curl gnupg2 software-properties-common
@@ -33,12 +33,12 @@ def install_docker() {
     apt-get install docker-ce
 }
 
-def install_docker_compose() {
+function install_docker_compose() {
     curl -x $PROXY -L "https://github.com/docker/compose/releases/download/1.21.0/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
     chmod +x /usr/local/bin/docker-compose
 }
 
-def setting_docker_proxy() {
+function setting_docker_proxy() {
     if [ -n $PROXY ]; then
         mkdir /etc/systemd/system/docker.service.d
         echo "[Service]" > /etc/systemd/system/docker.service.d/http-proxy.conf
@@ -49,7 +49,7 @@ def setting_docker_proxy() {
     fi
 }
 
-def usage(){
+function usage(){
     echo "Install"
 }
 

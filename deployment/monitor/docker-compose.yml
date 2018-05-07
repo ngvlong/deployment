@@ -1,0 +1,12 @@
+version: '3'
+services:
+    influxdb:
+        container_name: influxdb
+        image: influxdb:1.5.2
+        restart: always
+        network_mode: host
+        logging:
+            driver: json-file
+            options:
+                max-size: "10m"
+                max-file: "10"

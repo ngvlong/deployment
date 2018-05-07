@@ -7,9 +7,9 @@ function update(){
 
 function setting_apt_proxy(){
     if [ -n $PROXY ]; then
-        echo 'Acquire::http::Proxy '$PROXY';' > /etc/apt/apt.conf
-        echo 'Acquire::https::Proxy '$PROXY';' >> /etc/apt/apt.conf
-        echo 'Acquire::ftp::Proxy '$PROXY';' >> /etc/apt/apt.conf
+        echo 'Acquire::http::Proxy "'$PROXY'";' > /etc/apt/apt.conf
+        echo 'Acquire::https::Proxy "'$PROXY'";' >> /etc/apt/apt.conf
+        echo 'Acquire::ftp::Proxy "'$PROXY'";' >> /etc/apt/apt.conf
     fi
 }
 
@@ -75,9 +75,9 @@ while [ "$1" != "" ]; do
     shift
 done
 
-update
 setting_apt_proxy
 setting_apt_source
+update
 
 install_docker
 install_docker_compose

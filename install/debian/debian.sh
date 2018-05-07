@@ -32,7 +32,7 @@ function install_docker() {
     apt-key fingerprint 0EBFCD88
     add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
     apt-get update -y
-    apt-get install docker-ce
+    apt-get install docker-ce -y
 }
 
 function install_docker_compose() {

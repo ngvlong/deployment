@@ -17,6 +17,11 @@ services:
         image: shakr/statsd-influxdb
         restart: always
         network_mode: host
+        environment:
+            - INFLUXDB_USERNAME=""
+            - INFLUXDB_PASSWORD=""
+            - INFLUXDB_DATABASE="logstash"
+            - INFLUXDB_HOST="127.0.0.1"
         logging:
             driver: json-file
             options:

@@ -7,6 +7,7 @@ services:
         volumes:
             - ./etc/logstash/conf.d:/etc/logstash/conf.d
         command: -f /etc/logstash/conf.d -r
+        network_mode: host
         logging:
             driver: json-file
             options:

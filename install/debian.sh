@@ -75,12 +75,12 @@ while [ "$1" != "" ]; do
     shift
 done
 
-update()
-setting_apt_proxy()
-setting_apt_source()
+update
+setting_apt_proxy
+setting_apt_source
 
-install_docker()
-install_docker_compose()
-setting_docker_proxy()
+install_docker
+install_docker_compose
+setting_docker_proxy
 
 echo "Done"

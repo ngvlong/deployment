@@ -7,9 +7,9 @@ function update(){
 
 function setting_apt_proxy(){
     if [ -n $PROXY ]; then
-        echo 'Acquire::http::Proxy "$PROXY";' > /etc/apt/apt.conf
-        echo 'Acquire::https::Proxy "$PROXY";' >> /etc/apt/apt.conf
-        echo 'Acquire::ftp::Proxy "$PROXY";' >> /etc/apt/apt.conf
+        echo 'Acquire::http::Proxy '$PROXY';' > /etc/apt/apt.conf
+        echo 'Acquire::https::Proxy '$PROXY';' >> /etc/apt/apt.conf
+        echo 'Acquire::ftp::Proxy '$PROXY';' >> /etc/apt/apt.conf
     fi
 }
 
@@ -42,7 +42,7 @@ function setting_docker_proxy() {
     if [ -n $PROXY ]; then
         mkdir /etc/systemd/system/docker.service.d
         echo "[Service]" > /etc/systemd/system/docker.service.d/http-proxy.conf
-        echo 'Environment="HTTP_PROXY=$PROXY" "HTTPS_PROXY=$PROXY" "NO_PROXY=localhost,127.0.0.0/8,192.168.0.0/16"'
+        echo 'Environment="HTTP_PROXY="'$PROXY'" "HTTPS_PROXY='$PROXY'" "NO_PROXY=localhost,127.0.0.0/8,192.168.0.0/16"'
 
         systemctl daemon-reload
         systemctl restart docker

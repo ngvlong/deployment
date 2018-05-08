@@ -11,7 +11,7 @@ services:
             INFLUXDB_ADMIN_PASSWORD: ""
             INFLUXDB_USER: ""
             INFLUXDB_USER_PASSWORD: ""
-            INFLUXDB_HTTP_WRITE_TRACING: true
+            INFLUXDB_HTTP_WRITE_TRACING: "true"
         network_mode: host
         logging:
             driver: json-file

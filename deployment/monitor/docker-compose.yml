@@ -28,7 +28,7 @@ services:
             - INFLUXDB_USERNAME="root"
             - INFLUXDB_PASSWORD="root"
             - INFLUXDB_DATABASE="logstash"
-            - INFLUXDB_HOST="127.0.0.1"
+            # - INFLUXDB_HOST="127.0.0.1"
         logging:
             driver: json-file
             options:

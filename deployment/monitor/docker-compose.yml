@@ -9,9 +9,9 @@ services:
             - INFLUXDB_DB="logstash"
             - INFLUXDB_ADMIN_USER="root"
             - INFLUXDB_ADMIN_PASSWORD="root"
-            - INFLUXDB_ADMIN_ENABLED="true"
             - INFLUXDB_USER="admin"
             - INFLUXDB_USER_PASSWORD="admin"
+            - INFLUXDB_HTTP_WRITE_TRACING="true"
         network_mode: host
         logging:
             driver: json-file

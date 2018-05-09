@@ -24,6 +24,7 @@ services:
     telegraf: 
         container_name: telegraf
         image: telegraf
+        hostname: telegraf
         restart: always
         environment:
             INFLUXDB_DB: logstash

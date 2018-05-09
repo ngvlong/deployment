@@ -4,6 +4,7 @@ services:
     influxdb:
         container_name: influxdb
         image: influxdb:1.5.2
+        hostname: influxdb
         restart: always
         environment:
             INFLUXDB_DB: logstash
@@ -13,7 +14,7 @@ services:
             # INFLUXDB_USER_PASSWORD: "root"
             # INFLUXDB_UDP_ENABLED: "true"
             INFLUXDB_HTTP_WRITE_TRACING: "true"
-        network_mode: host
+        # network_mode: host
         logging:
             driver: json-file
             options:

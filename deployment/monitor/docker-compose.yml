@@ -42,21 +42,21 @@ services:
             options:
                 max-size: "10m"
                 max-file: "10"
-    statsd:
-        container_name: statsd
-        image: shakr/statsd-influxdb
-        restart: always
-        network_mode: host
-        environment:
-            INFLUXDB_USERNAME: "root"
-            INFLUXDB_PASSWORD: "root"
-            INFLUXDB_DATABASE: logstash
-            # - INFLUXDB_HOST="127.0.0.1"
-        logging:
-            driver: json-file
-            options:
-                max-size: "10m"
-                max-file: "10"
+    # statsd:
+    #     container_name: statsd
+    #     image: shakr/statsd-influxdb
+    #     restart: always
+    #     network_mode: host
+    #     environment:
+    #         INFLUXDB_USERNAME: "root"
+    #         INFLUXDB_PASSWORD: "root"
+    #         INFLUXDB_DATABASE: logstash
+    #         # - INFLUXDB_HOST="127.0.0.1"
+    #     logging:
+    #         driver: json-file
+    #         options:
+    #             max-size: "10m"
+    #             max-file: "10"
 
     grafana:
         container_name: grafana

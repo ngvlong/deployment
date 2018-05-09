@@ -26,8 +26,8 @@ services:
         restart: always
         environment:
             INFLUXDB_DB: logstash
-            INFLUXDB_ADMIN_USER: "root"
-            INFLUXDB_ADMIN_PASSWORD: "root"
+            # INFLUXDB_ADMIN_USER: "root"
+            # INFLUXDB_ADMIN_PASSWORD: "root"
             # INFLUXDB_USER: "root"
             # INFLUXDB_USER_PASSWORD: "root"
             # INFLUXDB_UDP_ENABLED: "true"

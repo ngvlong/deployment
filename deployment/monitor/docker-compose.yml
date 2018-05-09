@@ -11,7 +11,7 @@ services:
             INFLUXDB_ADMIN_PASSWORD: "root"
             # INFLUXDB_USER: "root"
             # INFLUXDB_USER_PASSWORD: "root"
-            INFLUXDB_UDP_ENABLED: "true"
+            # INFLUXDB_UDP_ENABLED: "true"
             INFLUXDB_HTTP_WRITE_TRACING: "true"
         network_mode: host
         logging:
@@ -19,7 +19,29 @@ services:
             options:
                 max-size: "10m"
                 max-file: "10"
-    
+
+    telegraf: 
+        container_name: telegraf
+        image: telegraf
+        restart: always
+        environment:
+            INFLUXDB_DB: logstash
+            INFLUXDB_ADMIN_USER: "root"
+            INFLUXDB_ADMIN_PASSWORD: "root"
+            # INFLUXDB_USER: "root"
+            # INFLUXDB_USER_PASSWORD: "root"
+            # INFLUXDB_UDP_ENABLED: "true"
+            INFLUXDB_HTTP_WRITE_TRACING: "true"
+        # network_mode: host
+        volumes:
+            - ./etc/telegraf/telegraf.conf:/etc/telegraf/telegraf.conf:ro
+        ports:
+            - 8125:8125/udp
+        logging:
+            driver: json-file
+            options:
+                max-size: "10m"
+                max-file: "10"
     statsd:
         container_name: statsd
         image: shakr/statsd-influxdb

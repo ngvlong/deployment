@@ -11,7 +11,7 @@ services:
             INFLUXDB_ADMIN_PASSWORD: "root"
             # INFLUXDB_USER: "root"
             # INFLUXDB_USER_PASSWORD: "root"
-            INFLUXDB_UDP_ENABLED: true
+            INFLUXDB_UDP_ENABLED: "true"
             INFLUXDB_HTTP_WRITE_TRACING: "true"
         network_mode: host
         logging:

@@ -16,7 +16,10 @@ services:
         container_name: phpldapadmin
         image: osixia/phpldapadmin
         restart: always
-        network_mode: host
+        # network_mode: host
+        ports:
+            - 8443:443
+            - 8080:80
         logging:
             driver: json-file
             options:

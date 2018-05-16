@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+    openldap:
+        container_name: openldap
+        image: osixia/openldap
+        restart: always
+        network_mode: host
+        logging:
+            driver: json-file
+            options:
+                max-size: "10m"
+                max-file: "10"
+
+    phpldapadmin:
+        container_name: phpldapadmin
+        image: osixia/phpldapadmin
+        restart: always
+        network_mode: host
+        logging:
+            driver: json-file
+            options:
+                max-size: "10m"
+                max-file: "10"
+    

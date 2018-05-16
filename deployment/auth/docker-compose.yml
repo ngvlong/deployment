@@ -6,6 +6,8 @@ services:
         image: osixia/openldap
         restart: always
         # network_mode: host
+        ports: 
+            - "8389:389"
         environment:
             LDAP_ORGANISATION: "Long Tom" 
             LDAP_DOMAIN: "longtom.com"

@@ -6,6 +6,10 @@ services:
         image: osixia/openldap
         restart: always
         network_mode: host
+        environment:
+            LDAP_ORGANISATION: "Long Tom" 
+            LDAP_DOMAIN: "longtom.com"
+            LDAP_ADMIN_PASSWORD: "admin" 
         logging:
             driver: json-file
             options:
@@ -16,10 +20,14 @@ services:
         container_name: phpldapadmin
         image: osixia/phpldapadmin
         restart: always
-        # network_mode: host
-        ports:
-            - 8443:443
-            - 8080:80
+        network_mode: host
+        environment:
+            PHPLDAPADMIN_LDAP_HOSTS: openldap
+        links:
+            - openldap
+        ports: 
+            - "8443:443"
+            - "8080:80"
         logging:
             driver: json-file
             options:

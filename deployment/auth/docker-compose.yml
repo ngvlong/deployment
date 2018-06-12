@@ -4,6 +4,7 @@ services:
     openldap:
         container_name: openldap
         image: osixia/openldap
+        hostname: openldap
         restart: always
         # network_mode: host
         ports: 
@@ -21,6 +22,7 @@ services:
     phpldapadmin:
         container_name: phpldapadmin
         image: osixia/phpldapadmin
+        hostname: phpldapadmin
         restart: always
         # network_mode: host
         environment:
@@ -29,7 +31,7 @@ services:
             - openldap
         ports: 
             - "8443:443"
-            - "8080:80"
+            # - "8080:80"
         logging:
             driver: json-file
             options:

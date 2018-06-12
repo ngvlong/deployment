@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+    tomcat:
+        container_name: tomcat
+        image: tomcat
+        restart: always
+        volumes:
+            - ./tomcat/conf/tomcat-users.xml:/usr/local/tomcat/conf/tomcat-users.xml
+            - ./tomcat/logs/:/usr/local/tomcat/logs
+        ports:
+            - 8080:8080
+        logging:
+            driver: json-file
+            options:
+                max-size: "10m"
+                max-file: "10"
